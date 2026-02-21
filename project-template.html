@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Details</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-detail {max-width:900px; margin:2rem auto; padding:1.5rem}
+    .meta {color:var(--text-muted); margin-bottom:1rem}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">Adil<span>.</span></h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <a href="projects.html" class="btn outline">← Back to Projects</a>
+    <h1 id="proj-title">Loading…</h1>
+    <div class="meta" id="proj-meta"></div>
+    <p id="proj-desc"></p>
+    <div id="proj-links" style="margin-top:1rem"></div>
+  </section>
+
+  <script>
+    function getQueryParam(name){
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    async function load() {
+      const id = getQueryParam('id');
+      try{
+        const res = await fetch('projects/data/projects.json');
+        const projects = await res.json();
+        const p = projects.find(x => x.id === id);
+        if (!p) {
+          document.getElementById('proj-title').textContent = 'Project not found';
+          document.getElementById('proj-desc').textContent = '';
+          return;
+        }
+        document.getElementById('proj-title').textContent = p.title;
+        document.getElementById('proj-meta').textContent = p.tech.join(', ');
+        document.getElementById('proj-desc').textContent = p.description;
+        const links = document.getElementById('proj-links');
+        if (p.github) links.innerHTML += `<a class="btn" href="${p.github}" target="_blank">GitHub</a>`;
+        if (p.demo) links.innerHTML += `<a class="btn outline" href="${p.demo}" target="_blank" style="margin-left:0.5rem">Demo</a>`;
+      }catch(err){
+        document.getElementById('proj-title').textContent = 'Failed to load project';
+        console.error(err);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', load);
+  </script>
+</body>
+</html>

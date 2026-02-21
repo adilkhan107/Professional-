@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .builder {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+        .builder .row {display:flex; gap:1rem;}
+        .builder label {display:block; font-weight:600; margin-bottom:0.25rem}
+        .builder input, .builder textarea {width:100%; padding:0.6rem; border:1px solid #ddd; border-radius:6px}
+        .builder .actions {margin-top:1rem; display:flex; gap:0.5rem}
+    </style>
+</head>
+<body>
+<section style="padding: 2rem 10%;">
+    <div class="builder">
+        <h2>Build Your Resume</h2>
+        <form id="resumeForm">
+            <div class="row">
+                <div style="flex:1">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" placeholder="e.g. Adil Khan" />
+                </div>
+                <div style="flex:1">
+                    <label for="title">Title / Headline</label>
+                    <input id="title" name="title" placeholder="e.g. AI & Machine Learning Engineer" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:0.75rem">
+                <div style="flex:1">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" placeholder="+91 7983..." />
+                </div>
+                <div style="flex:1">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" placeholder="you@example.com" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:0.75rem">
+                <div style="flex:1">
+                    <label for="github">GitHub URL</label>
+                    <input id="github" name="github" placeholder="https://github.com/username" />
+                </div>
+                <div style="flex:1">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <input id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username" />
+                </div>
+            </div>
+
+            <div style="margin-top:0.75rem">
+                <label for="summary">Professional summary</label>
+                <textarea id="summary" name="summary" rows="5" placeholder="Short professional summary..."></textarea>
+            </div>
+
+            <div style="margin-top:0.75rem">
+                <label for="templateSelect">Template style</label>
+                <select id="templateSelect" name="templateSelect" style="padding:0.5rem; border:1px solid #ddd; border-radius:6px; width:100%">
+                    <option value="classic">Classic</option>
+                    <option value="professional">Professional (compact, print-ready)</option>
+                </select>
+            </div>
+
+            <div style="margin-top:0.75rem">
+                <h3>Education (10th / 12th / College)</h3>
+                <div class="row" style="margin-top:0.5rem">
+                    <div style="flex:1">
+                        <label for="school10">10th School</label>
+                        <input id="school10" name="B S M INTER COLLAGE " placeholder="School name for 10th" />
+                    </div>
+                    <div style="width:140px">
+                        <label for="year10">Passing Year</label>
+                        <input id="year10" name="2021" placeholder="e.g. 2018" />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:0.5rem">
+                    <div style="flex:1">
+                        <label for="school12">12th School </label>
+                        <input id="school12" name=" B S M INTER COLLAGE " placeholder="School name for 12th" />
+                    </div>
+                    <div style="width:140px">
+                        <label for="year12">Passing Year  2023 </label>
+                        <input id="year12" name="year12" placeholder="e.g. 2020" />
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:0.5rem">
+                    <div style="flex:1">
+                        <label for="college">College / University</label>
+                        <input id="college" name="Mind Power University Bhimatal " placeholder="College name" />
+                    </div>
+                    <div style="width:140px">
+                        <label for="collegeYear">Passing Year</label>
+                        <input id="collegeYear" name="2024" placeholder="e.g. 2024" />
+                    </div>
+                </div>
+                    <div style="margin-top:0.5rem">
+                        <label for="collegeDesc">College description / coursework</label>
+                        <textarea id="collegeDesc" name="collegeDesc" rows="3" placeholder="Brief coursework or degree details"></textarea>
+                    </div>
+            </div>
+
+            <div style="margin-top:0.75rem">
+                <label><input type="checkbox" id="compact" name="compact" /> Compact resume (show only essential sections)</label>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn">Save & View Resume</button>
+                <button type="button" id="clearData" class="btn outline">Clear saved data</button>
+                <a href="resume.html" class="btn" style="margin-left:auto">Open Template</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="js/resume-builder.js"></script>
+</body>
+</html>

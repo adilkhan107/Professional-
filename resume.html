@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Sohil Khan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(6, 182, 212, 0.03);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .resume-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        .resume-contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .resume-contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Professional header banner for print */
+        .resume-header.banner-style {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.03));
+            padding: 2rem;
+            margin: -3rem -3rem 2rem -3rem;
+            border-radius: 15px 15px 0 0;
+            border: none;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .resume-header.banner-style h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+            margin: 0.5rem 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .resume-header.banner-style .resume-contact-info {
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .resume-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .resume-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .resume-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-item h3 {
+            color: var(--text-light);
+            margin: 0 0 0.3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-item-meta {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .resume-item-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-left: 1rem;
+        }
+
+        .resume-item-description ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .resume-item-description li {
+            margin-bottom: 0.3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(6, 182, 212, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .skill-category strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .print-button {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Professional template styles */
+        .resume-container.template-professional {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            max-width: 850px;
+            padding: 2rem;
+            border: none;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        .resume-container.template-professional .resume-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border: none;
+            padding-bottom: 1rem;
+        }
+
+        .resume-container.template-professional h1 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .resume-container.template-professional .resume-contact-info {
+            justify-content: flex-end;
+            gap: 1rem;
+            font-size: 0.92rem;
+        }
+
+        .resume-container.template-professional .resume-section {
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .resume-container.template-professional .skills-grid {grid-template-columns: repeat(3, 1fr);}
+
+        /* Two-column layout for larger screens */
+        @media (min-width: 900px) {
+            .resume-container.template-professional {
+                display: grid;
+                grid-template-columns: 1fr 320px;
+                gap: 2rem;
+            }
+            .resume-container.template-professional .resume-header,
+            .resume-container.template-professional .resume-section {grid-column: 1/2}
+            .resume-container.template-professional .skills-grid,
+            .resume-container.template-professional .skill-category {grid-column: 2/3}
+            .resume-container.template-professional .print-button {grid-column: 1/3}
+        }
+
+        @media print {
+            .navbar, footer, .print-button {
+                display: none;
+            }
+            .resume-container {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 1.5rem;
+            }
+            .resume-contact-info {
+                gap: 1rem;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Sohil<span>.</span></h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html" class="active">Resume</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== RESUME SECTION ===== -->
+<section style="padding: 3rem 10%;">
+    <div class="print-button">
+        <button class="btn" onclick="window.print()" style="cursor: pointer;">Print / Download as PDF</button>
+    </div>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="resume-header">
+            <h1 id="res-name">SOHIL KHAN</h1>
+            <p id="res-title" style="color: var(--primary); font-size: 1rem; margin: 0.5rem 0;">AI & Machine Learning Professional</p>
+            <div class="resume-contact-info">
+                <span>📱 <a id="res-phone" href="tel:7983935099">+91 7983935099</a></span>
+                <span>📧 <a id="res-email" href="mailto:sohilkhan0761076@gmail.com">sohilkhan0761076@gmail.com</a></span>
+                <span>🔗 <a id="res-github" href="https://github.com" target="_blank">GitHub Profile</a></span>
+                <span>💼 <a id="res-linkedin" href="https://linkedin.com" target="_blank">LinkedIn</a></span>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="resume-section">
+            <h2>💼 Professional Summary</h2>
+            <p id="res-summary" style="color: var(--text-muted); line-height: 1.8;">
+                Accomplished AI and Machine Learning Professional with extensive expertise in developing intelligent systems and data-driven solutions. Demonstrated track record of successfully delivering complex machine learning projects that solve real-world problems. Proficient in Python, data analysis, and modern ML frameworks. Committed to continuous learning and staying updated with emerging technologies in AI and data science.
+            </p>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="resume-section" data-section="optional">
+            <h2>🎯 Professional Experience</h2>
+            
+            <div class="resume-item">
+                <h3>
+                    <span>Machine Learning Engineer</span>
+                    <span class="resume-item-meta">2024 - Present</span>
+                </h3>
+                <div class="resume-item-subtitle">AI Solutions & Development</div>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Developed and deployed machine learning models for predictive analytics and data classification</li>
+                        <li>Implemented computer vision solutions for real-time object detection and facial recognition</li>
+                        <li>Optimized model performance achieving 89-95% accuracy across multiple projects</li>
+                        <li>Collaborated with cross-functional teams on end-to-end ML pipeline development</li>
+                        <li>Conducted data preprocessing and feature engineering for complex datasets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>
+                    <span>Data Science Specialist</span>
+                    <span class="resume-item-meta">2023 - 2024</span>
+                </h3>
+                <div class="resume-item-subtitle">Data Analysis & Visualization</div>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Analyzed large datasets to extract actionable insights</li>
+                        <li>Created interactive dashboards for data visualization and reporting</li>
+                        <li>Developed data pipelines for automated data processing</li>
+                        <li>Mentored junior analysts in best practices and tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="resume-section">
+            <h2>🛠️ Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Programming Languages</strong>
+                    <p>Python, JavaScript, SQL, C++</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Machine Learning</strong>
+                    <p>TensorFlow, Keras, Scikit-learn, PyTorch</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Data Science Libraries</strong>
+                    <p>NumPy, Pandas, Matplotlib, Seaborn, Plotly</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Computer Vision</strong>
+                    <p>OpenCV, Image Processing, Deep Learning</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Web Development</strong>
+                    <p>HTML5, CSS3, JavaScript, Responsive Design</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Tools & Platforms</strong>
+                    <p>Jupyter, Git, VS Code, Google Colab, Docker, Linux</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="resume-section" data-section="optional">
+            <h2>🚀 Key Projects</h2>
+
+            <div class="resume-item">
+                <h3>Student Performance Prediction Model</h3>
+                <div class="resume-item-subtitle">Machine Learning | Python | Data Science</div>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Built predictive ML model to forecast student academic performance with 89% accuracy</li>
+                        <li>Performed comprehensive data preprocessing and feature engineering</li>
+                        <li>Utilized Scikit-learn for model training and cross-validation</li>
+                        <li>Analyzed multiple factors: study hours, attendance, previous scores, engagement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Real-Time Face Detection & Recognition System</h3>
+                <div class="resume-item-subtitle">Computer Vision | Deep Learning | OpenCV</div>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Developed advanced face detection system achieving 95% accuracy</li>
+                        <li>Implemented real-time recognition capabilities using deep learning models</li>
+                        <li>Optimized for multiple lighting conditions and angles</li>
+                        <li>Integrated multiple face tracking with efficient algorithms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Interactive Data Analysis Dashboard</h3>
+                <div class="resume-item-subtitle">Data Visualization | Python | Data Analysis</div>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Created comprehensive interactive dashboard for large dataset visualization</li>
+                        <li>Implemented real-time data processing and filtering capabilities</li>
+                        <li>Built dynamic charts using Plotly and Matplotlib</li>
+                        <li>Enabled users to derive actionable insights from complex data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="resume-section">
+            <h2>🎓 Education & Certifications</h2>
+
+            <div class="resume-item">
+                <h3 id="res-college">College / University</h3>
+                <div class="resume-item-meta" id="res-college-year">Passing Year</div>
+                <div class="resume-item-description">
+                    <p id="res-college-desc">Comprehensive coursework in algorithms, data structures, software engineering, artificial intelligence, and machine learning implementation.</p>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3 id="res-school12">12th: <span id="res-school12-name"></span></h3>
+                <div class="resume-item-meta" id="res-year12">Year</div>
+            </div>
+
+            <div class="resume-item">
+                <h3 id="res-school10">10th: <span id="res-school10-name"></span></h3>
+                <div class="resume-item-meta" id="res-year10">Year</div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Professional Certifications</h3>
+                <div class="resume-item-description">
+                    <ul>
+                        <li>Machine Learning Specialization - Advanced ML Techniques</li>
+                        <li>Data Science & Python Programming - End-to-End Data Science</li>
+                        <li>Computer Vision with OpenCV - Image Processing & Recognition</li>
+                        <li>TensorFlow & Deep Learning - Advanced Neural Networks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements & Recognition -->
+        <div class="resume-section" data-section="optional">
+            <h2>⭐ Achievements & Recognition</h2>
+            <div class="resume-item-description">
+                <ul>
+                    <li>Completed 15+ successful machine learning projects with real-world impact</li>
+                    <li>Achieved 95%+ accuracy in computer vision and image processing tasks</li>
+                    <li>Demonstrated expertise across 8+ key technologies and frameworks</li>
+                    <li>100% dedication to project excellence and continuous improvement</li>
+                    <li>Strong track record of delivering projects on time and exceeding expectations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Skills -->
+        <div class="resume-section" data-section="optional">
+            <h2>💡 Additional Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Problem Solving</strong>
+                    <p>Strong analytical and critical thinking abilities</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Team Collaboration</strong>
+                    <p>Excellent communication and teamwork skills</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Project Management</strong>
+                    <p>Agile methodology and deadline management</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Research & Development</strong>
+                    <p>Innovative approach to emerging technologies</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Documentation</strong>
+                    <p>Clear technical writing and presentations</p>
+                </div>
+                <div class="skill-category">
+                    <strong>Languages</strong>
+                    <p>English (Fluent), Hindi (Native)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Interests -->
+        <div class="resume-section" data-section="optional">
+            <h2>🎯 Professional Interests</h2>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+                Passionate about Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Data Science, Open Source Contribution, and staying updated with the latest advancements in AI and technology. Actively seeking challenging opportunities to apply expertise and grow professionally in the fields of AI and data science.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Sohil Khan | All Rights Reserved | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a></p>
+</footer>
+
+<script src="js/resume-template.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

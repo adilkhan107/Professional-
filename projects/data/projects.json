@@ -1,0 +1,42 @@
+[
+  {
+    "id": "student-performance",
+    "title": "Student Performance Prediction",
+    "short": "Predicts student academic performance using machine learning.",
+    "type": "ml",
+    "tech": ["Python","Pandas","Scikit-learn","NumPy"],
+    "description": "Built a predictive ML model to forecast student academic performance with 89% accuracy. Performed feature engineering and cross-validation.",
+    "github": "https://github.com/adil/student-performance",
+    "demo": ""
+  },
+  {
+    "id": "face-detection",
+    "title": "Real-Time Face Detection & Recognition",
+    "short": "Real-time face detection and recognition system.",
+    "type": "cv",
+    "tech": ["Python","OpenCV","TensorFlow"],
+    "description": "Developed advanced face detection system achieving 95% accuracy and real-time recognition capabilities.",
+    "github": "https://github.com/adil/face-detection",
+    "demo": ""
+  },
+  {
+    "id": "data-dashboard",
+    "title": "Interactive Data Analysis Dashboard",
+    "short": "Dashboard for visualizing and analyzing large datasets.",
+    "type": "ds",
+    "tech": ["Python","Plotly","Dash"],
+    "description": "Created an interactive dashboard with real-time filtering and dynamic charts using Plotly Dash.",
+    "github": "https://github.com/adil/data-dashboard",
+    "demo": ""
+  },
+  {
+    "id": "nlp-tool",
+    "title": "NLP Toolkit",
+    "short": "Sentiment analysis and text processing tools.",
+    "type": "nlp",
+    "tech": ["Python","SpaCy","Transformers"],
+    "description": "Built NLP pipelines for sentiment analysis, keyword extraction and text classification.",
+    "github": "https://github.com/adil/nlp-tool",
+    "demo": ""
+  }
+]

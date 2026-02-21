@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Adil Khan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Adil<span>.</span></h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="projects" style="padding: 2rem 10%;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+        <h1>My Projects</h1>
+        <div style="display:flex; gap:0.5rem; align-items:center">
+            <input id="projectSearch" placeholder="Search projects..." style="padding:0.5rem; border:1px solid #ddd; border-radius:6px" />
+            <select id="techFilter" style="padding:0.5rem; border:1px solid #ddd; border-radius:6px">
+                <option value="">All technologies</option>
+            </select>
+            <select id="typeFilter" style="padding:0.5rem; border:1px solid #ddd; border-radius:6px">
+                <option value="">All types</option>
+                <option value="ml">Machine Learning</option>
+                <option value="cv">Computer Vision</option>
+                <option value="ds">Data Science</option>
+                <option value="nlp">NLP</option>
+                <option value="web">Web / Demo</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="projectsList" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem"></div>
+</section>
+
+<script src="js/projects.js"></script>
+
+<footer>
+    <p>&copy; 2026 Adil Khan | All Rights Reserved | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
