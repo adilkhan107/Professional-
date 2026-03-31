@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     try {
         const raw = localStorage.getItem('resumeData');
-        if (!raw) return;
+        // If no saved data, show a concise resume: hide optional sections by default
+        if (!raw) {
+            try {
+                document.querySelectorAll('[data-section="optional"]').forEach(el => el.style.display = 'none');
+            } catch (err) {
+                // ignore if elements aren't present
+            }
+            return;
+        }
         const data = JSON.parse(raw);
 
         if (data.name) document.getElementById('res-name').textContent = data.name;

@@ -19,9 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const collegeEl = document.getElementById('college');
             const collegeYearEl = document.getElementById('collegeYear');
             const collegeDescEl = document.getElementById('collegeDesc');
-            if (collegeEl && !collegeEl.value) collegeEl.value = 'MIND POWER UNIVERSITY BHIMTAL';
-            if (collegeYearEl && !collegeYearEl.value) collegeYearEl.value = '2024';
-            if (collegeDescEl && !collegeDescEl.value) collegeDescEl.value = 'Pursuing B.Tech CSE — expected 2024. Coursework: algorithms, data structures, AI, machine learning.';
+            if (collegeEl && !collegeEl.value) collegeEl.value = 'Mind Power University';
+            if (collegeYearEl && !collegeYearEl.value) collegeYearEl.value = 'Ongoing';
+            if (collegeDescEl && !collegeDescEl.value) collegeDescEl.value = 'Pursuing B.Tech (CSE) at Mind Power University.';
+            // default to compact (hide optional sections) for a concise resume
+            const compactEl = document.getElementById('compact');
+            if (compactEl) compactEl.checked = true;
         }
     } catch (err) {
         console.warn('Could not prefill builder form:', err);
